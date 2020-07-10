@@ -3,7 +3,7 @@ import {InvoiceService} from "../../services/invoice.service";
 import {ActivatedRoute, Params} from "@angular/router";
 import {map} from "rxjs/operators";
 import {Observable} from "rxjs";
-import {Invoice} from "@invoices/api-interfaces";
+import {Company, Invoice, LineItem} from "@invoices/api-interfaces";
 import {InvoiceEditState} from "../../states/InvoiceEditState";
 
 @Component({
@@ -14,8 +14,12 @@ import {InvoiceEditState} from "../../states/InvoiceEditState";
 })
 export class EditInvoiceComponent {
 
-  invoice: Observable<Invoice>;
+  invoice$: Observable<Invoice>;
   isNew$: Observable<boolean>;
+
+  supplier$: Observable<Company>;
+  clients$: Observable<Company[]>;
+  lineItems$: Observable<LineItem[]>;
 
   constructor(private invoiceService: InvoiceService,
               private route: ActivatedRoute) {
@@ -28,8 +32,12 @@ export class EditInvoiceComponent {
         this.invoiceService.loadInvoice(id)
       );
 
-    // this.isNew$ = invoiceService.isNew$();
-    // this.item$ = invoiceService.getInvoice$();
-
+    this.isNew$ = invoiceService.isNew$();
+    this.invoice$ = invoiceService.getInvoice$();
+    this.supplier$ = invoiceService.getSupplier$();
+    this.clients$ = invoiceService.getClients$();
+    this.lineItems$ = invoiceService.getLineItems$();
   }
+
+
 }
