@@ -12,21 +12,20 @@ import {map} from 'rxjs/operators';
 export class InvoiceComponent implements OnInit {
   invoice: Invoice;
 
-  constructor(private service: InvoiceService, private route: ActivatedRoute) { }
+  constructor(private service: InvoiceService, private route: ActivatedRoute) {
+    this.service.getInvoice$().subscribe((invoice: Invoice) => {
+      this.invoice = invoice;
+    });
+  }
 
   ngOnInit(): void {
     this.route.params
       .pipe(
         map(params => params.invoiceId)
       )
-      .subscribe(invoiceId => this.loadClient(invoiceId))
-  }
-
-  private loadClient(invoiceId: string) {
-    // TODO Rebuild
-    // this.service.loadInvoice(invoiceId)
-    //   .subscribe(invoice => this.invoice = invoice);
-
+      .subscribe(invoiceId =>
+        this.service.loadInvoice(invoiceId)
+      )
   }
 
 }
