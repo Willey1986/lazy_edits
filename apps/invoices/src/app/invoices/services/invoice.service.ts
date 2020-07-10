@@ -5,21 +5,40 @@ import {ApiResponse, Company, Invoice, LineItem} from "@invoices/api-interfaces"
 import {Observable} from "rxjs";
 import {ClientResourceService} from "../../clients/services/client-resource.service";
 import {ItemsResourceService} from "../../items/services/items-resource.service";
+import {InvoiceResourceService} from "./invoice-resource.service";
+import {Router} from "@angular/router";
 
 @Injectable()
 export class InvoiceService {
 
   constructor(private invoiceEditState: InvoiceEditState,
               private clientResourceService: ClientResourceService,
-              private itemsResourceService: ItemsResourceService) {
+              private itemsResourceService: ItemsResourceService,
+              private invoiceResourceService: InvoiceResourceService,
+              private router: Router) {
   }
 
   loadInvoice(invoiceId: string): void {
-
+    this.invoiceResourceService.loadInvoice(invoiceId)
+      .subscribe((invoice: Invoice) => {
+        this.invoiceEditState.setInvoice(invoice);
+      });
   }
 
   loadSupplier(): void {
-
+    this.clientResourceService.loadCompanies()
+      .pipe(
+        map((clients: ApiResponse<Company>) => {
+          if (clients != null && clients.data != null && clients.data.length > 0) {
+            return clients.data[0];
+          } else {
+            return null;
+          }
+        })
+      )
+      .subscribe((supplier: Company) => {
+        this.invoiceEditState.setSupplier(supplier);
+      });
   }
 
   loadClients(searchString: string): void {
@@ -41,7 +60,11 @@ export class InvoiceService {
   }
 
   saveInvoice(invoice: Invoice): void {
-
+    this.invoiceResourceService.saveInvoice(invoice)
+      .subscribe((storedInvoice: Invoice) => {
+        this.invoiceEditState.setInvoice(storedInvoice);
+        this.router.navigateByUrl(`invoices/${storedInvoice.id}/edit`);
+      });
   }
 
   isNew$() {

@@ -7,7 +7,6 @@ import {Company, Invoice, LineItem} from "@invoices/api-interfaces";
 import {InvoiceEditState} from "../../states/InvoiceEditState";
 
 @Component({
-  selector: 'invoices-edit-invoice',
   templateUrl: './edit-invoice.component.html',
   styleUrls: ['./edit-invoice.component.css'],
   providers: [InvoiceService, InvoiceEditState]
@@ -47,6 +46,10 @@ export class EditInvoiceComponent {
 
   public onLineItemSearch(productName: string): void {
     this.invoiceService.loadLineItems(productName);
+  }
+
+  public onStoreInvoice(invoice: Invoice): void {
+    this.invoiceService.saveInvoice(invoice);
   }
 
 }
