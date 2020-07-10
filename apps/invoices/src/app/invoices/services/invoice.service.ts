@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {InvoiceEditState, InvoiceEditStateObject} from "../states/InvoiceEditState";
-import {map} from "rxjs/operators";
+import {map, take} from "rxjs/operators";
 import {ApiResponse, Company, Invoice, LineItem} from "@invoices/api-interfaces";
 import {Observable} from "rxjs";
 import {ClientResourceService} from "../../clients/services/client-resource.service";
@@ -56,8 +56,28 @@ export class InvoiceService {
   }
 
   saveClient(client: Company): void {
-
+    console.log("Tried to store client: " + JSON.stringify(client));
+    const newClient = Object.assign({}, client, {id: this.createUuidv4()});
+    this.invoiceEditState.getState$()
+      .pipe(
+        take(1),
+        map((state: InvoiceEditStateObject) =>
+          Object.assign({}, state.invoice, newClient)
+        ),
+      )
+      .subscribe((invoice: Invoice) => {
+        this.invoiceEditState.setInvoice(invoice);
+      });
   }
+
+  private createUuidv4() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+      const r = Math.random() * 16 | 0;
+      const v = (c == 'x') ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
+  }
+
 
   saveInvoice(invoice: Invoice): void {
     this.invoiceResourceService.saveInvoice(invoice)
