@@ -1,1 +1,55 @@
-<p>client works!</p>
+<div class="wrapper">
+  <div class="supplier">
+    <h3>SUPPLIER</h3>
+    <h4>
+      MY COMPANY
+    </h4>
+    <div>
+      VAT No.: 98237189312
+    </div>
+    <div>
+      Reg. No.: 2978312482
+    </div>
+    <div>
+      Address: 4802 Koontza Lane North Hollywood, CA 91605
+    </div>
+    <div>
+      Capital: 1200RON
+    </div>
+    <div>
+      Cont: XXXXXXXXXXXXXXX
+    </div>
+    <div>
+      Bank: ING Bank
+    </div>
+    <div>
+      BIC code: INGBROBU
+    </div>
+  </div>
+
+  <div class="client">
+    <h3>NEW CLIENT</h3>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Company Name"
+             [matAutocomplete]="allCompanies">
+      <mat-autocomplete autoActiveFirstOption #allCompanies="matAutocomplete">
+        <mat-option *ngFor="let company of companies" [value]="company.name">
+          <span>{{company.name}}</span>
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="VAT Number">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Address">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Other">
+    </mat-form-field>
+    <div class="actions">
+      <button mat-button mat-raised-button>Cancel</button>
+      <button mat-button mat-raised-button>Save</button>
+    </div>
+  </div>
+</div>
