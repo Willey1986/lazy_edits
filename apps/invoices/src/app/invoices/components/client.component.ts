@@ -7,7 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientComponent implements OnInit {
 
-  constructor() { }
+  companies: any = [{
+    name: 'Special company'
+    }, {
+    name: 'Awesome company'
+    }, {
+      name: 'Cool company'
+    }];
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

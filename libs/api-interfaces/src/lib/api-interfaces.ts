@@ -23,6 +23,7 @@ export interface LineItem {
   id: string;
   product: string;
   price: number;
+  quantity: number;
 }
 
 export interface Invoice {

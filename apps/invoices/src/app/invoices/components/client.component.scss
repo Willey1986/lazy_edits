@@ -1,0 +1,24 @@
+.wrapper{
+  display: flex;
+  justify-content: space-around;
+}
+.supplier{
+  background-color: lightgray;
+  padding: 15px;
+}
+.client{
+  width: 35%;
+}
+
+h3, h4 {
+  font-weight: bold;
+}
+
+mat-form-field{
+  display: block;
+}
+
+.actions{
+  display: flex;
+  justify-content: flex-end;
+}
