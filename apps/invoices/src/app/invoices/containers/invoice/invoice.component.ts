@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { Invoice } from '@invoices/api-interfaces';
-import { InvoiceService } from '../../services/invoice.service';
-import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs/operators';
+import {Component, OnInit} from '@angular/core';
+import {Invoice} from '@invoices/api-interfaces';
+import {InvoiceService} from '../../services/invoice.service';
+import {ActivatedRoute} from '@angular/router';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'invoices-invoice',
@@ -23,8 +23,10 @@ export class InvoiceComponent implements OnInit {
   }
 
   private loadClient(invoiceId: string) {
-    this.service.loadInvoice(invoiceId)
-      .subscribe(invoice => this.invoice = invoice);
+    // TODO Rebuild
+    // this.service.loadInvoice(invoiceId)
+    //   .subscribe(invoice => this.invoice = invoice);
+
   }
 
 }
