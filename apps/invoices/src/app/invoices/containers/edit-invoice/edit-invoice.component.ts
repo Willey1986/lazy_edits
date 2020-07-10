@@ -32,6 +32,8 @@ export class EditInvoiceComponent {
         this.invoiceService.loadInvoice(id)
       );
 
+    this.invoiceService.loadSupplier();
+
     this.isNew$ = invoiceService.isNew$();
     this.invoice$ = invoiceService.getInvoice$();
     this.supplier$ = invoiceService.getSupplier$();
@@ -39,5 +41,12 @@ export class EditInvoiceComponent {
     this.lineItems$ = invoiceService.getLineItems$();
   }
 
+  public onClientSearch(clientName: string): void {
+    this.invoiceService.loadClients(clientName);
+  }
+
+  public onLineItemSearch(productName: string): void {
+    this.invoiceService.loadLineItems(productName);
+  }
 
 }
