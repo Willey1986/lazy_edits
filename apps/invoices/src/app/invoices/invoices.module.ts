@@ -12,9 +12,10 @@ import { InvoiceService } from './services/invoice.service';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatListModule } from '@angular/material/list';
 import { EditInvoiceComponent } from './containers/edit-invoice/edit-invoice.component';
+import { ClientComponent } from './components/client.component';
 
 @NgModule({
-  declarations: [InvoiceListComponent, InvoiceComponent, GetAmountPipe, EditInvoiceComponent],
+  declarations: [InvoiceListComponent, InvoiceComponent, GetAmountPipe, EditInvoiceComponent, ClientComponent],
   imports: [
     CommonModule,
     InvoicesRoutingModule,
