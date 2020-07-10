@@ -1,0 +1,20 @@
+<ng-container [formGroup]="invoiceCustomizationFormGroup" *ngIf="invoiceCustomizationFormGroup">
+  <mat-form-field class="example-full-width">
+    <mat-label>Unit measurements</mat-label>
+    <mat-select formControlName="position">
+      <mat-option *ngFor="let unit of unitMeasurements" [value]="unit">
+        {{unit}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Currency</mat-label>
+    <mat-select formControlName="currency">
+      <mat-option *ngFor="let currency of currencies" [value]="currency">
+        {{currency}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</ng-container>

@@ -15,9 +15,10 @@ import { EditInvoiceComponent } from './containers/edit-invoice/edit-invoice.com
 import { ClientComponent } from './components/client.component';
 import { InvoiceHeaderComponent } from './components/invoice-header/invoice-header.component';
 import { MatDatepicker } from '@angular/material/datepicker';
+import { InvoiceCustomizationComponent } from './components/invoice-customization/invoice-customization.component';
 
 @NgModule({
-  declarations: [InvoiceListComponent, InvoiceComponent, GetAmountPipe, EditInvoiceComponent, ClientComponent, InvoiceHeaderComponent],
+  declarations: [InvoiceListComponent, InvoiceComponent, GetAmountPipe, EditInvoiceComponent, ClientComponent, InvoiceHeaderComponent, InvoiceCustomizationComponent],
   imports: [
     CommonModule,
     InvoicesRoutingModule,
