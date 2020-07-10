@@ -1,18 +1,13 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Invoice } from '@invoices/api-interfaces';
+import {Injectable} from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class InvoiceService {
 
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
-  loadInvoice(invoiceId: string): Observable<Invoice> {
-    const url = `/api/invoices/${invoiceId}`;
-    console.log('Loading invoice', url);
-    return this.http.get<Invoice>(url);
+  loadInvoice(invoiceId: string): void {
+
   }
+
+
 }
