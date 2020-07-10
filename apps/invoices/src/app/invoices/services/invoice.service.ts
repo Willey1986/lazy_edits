@@ -1,12 +1,12 @@
-import {Injectable} from '@angular/core';
-import {InvoiceEditState, InvoiceEditStateObject} from "../states/InvoiceEditState";
-import {map, take} from "rxjs/operators";
-import {ApiResponse, Company, Invoice, LineItem} from "@invoices/api-interfaces";
-import {Observable} from "rxjs";
-import {ClientResourceService} from "../../clients/services/client-resource.service";
-import {ItemsResourceService} from "../../items/services/items-resource.service";
-import {InvoiceResourceService} from "./invoice-resource.service";
-import {Router} from "@angular/router";
+import { Injectable } from '@angular/core';
+import { InvoiceEditState, InvoiceEditStateObject } from '../states/InvoiceEditState';
+import { map, take } from 'rxjs/operators';
+import { ApiResponse, Company, Invoice, LineItem } from '@invoices/api-interfaces';
+import { Observable } from 'rxjs';
+import { ClientResourceService } from '../../clients/services/client-resource.service';
+import { ItemsResourceService } from '../../items/services/items-resource.service';
+import { InvoiceResourceService } from './invoice-resource.service';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class InvoiceService {
@@ -16,6 +16,7 @@ export class InvoiceService {
               private itemsResourceService: ItemsResourceService,
               private invoiceResourceService: InvoiceResourceService,
               private router: Router) {
+    this.loadClients('');
   }
 
   loadInvoice(invoiceId: string): void {

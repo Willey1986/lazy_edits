@@ -27,14 +27,14 @@
     </div>
   </div>
 
-  <div class="client">
+  <div class="client" *ngIf="clients$ | async as clients">
     <h3>NEW CLIENT</h3>
     <mat-form-field>
       <input matInput type="text" placeholder="Company Name"
-             [matAutocomplete]="allCompanies">
-      <mat-autocomplete autoActiveFirstOption #allCompanies="matAutocomplete">
-        <mat-option *ngFor="let company of companies" [value]="company.name">
-          <span>{{company.name}}</span>
+             [matAutocomplete]="allClients">
+      <mat-autocomplete autoActiveFirstOption #allClients="matAutocomplete">
+        <mat-option *ngFor="let client of clients" [value]="client.companyName">
+          <span>{{client.companyName}}</span>
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
