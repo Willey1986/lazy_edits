@@ -1,0 +1,44 @@
+:host {
+  display: grid;
+  min-height: 100vh;
+  grid-template-areas: 'header' 'main';
+  grid-template-rows: 160px auto;
+  column-gap: 10px;
+  row-gap: 10px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+header {
+  grid-area: header;
+  padding: 2em 2em 0 2em;
+  height: 160px;
+
+  .mat-toolbar {
+    border-bottom: 2px solid black;
+    background-color: white;
+
+    .space {
+      flex: 1 1 auto;
+    }
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    outline: none;
+
+    img {
+      height: 2em;
+    }
+  }
+
+  .tagline {
+    padding-left: 4em;
+  }
+}
+
+main {
+  grid-area: main;
+  padding: 2em;
+}

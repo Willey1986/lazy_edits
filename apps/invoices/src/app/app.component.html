@@ -1,0 +1,19 @@
+<header>
+  <mat-toolbar>
+      <div class="logo" routerLink="">
+        <img src="assets/logo.png" alt="Logo" class="logo">
+        Invoice Producing Company
+      </div>
+
+      <span class="space"></span>
+
+      <button mat-button routerLink="clients">Clients</button>
+      <button mat-button routerLink="invoices">Invoices</button>
+      <button mat-button routerLink="items">Work items</button>
+
+  </mat-toolbar>
+  <h3 class="tagline">We make the best invoices</h3>
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>

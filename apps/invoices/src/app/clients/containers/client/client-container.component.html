@@ -1,0 +1,12 @@
+<mat-card *ngIf="company">
+  <mat-card-title>{{ company.companyName }}</mat-card-title>
+  <mat-card-content>
+    <invoices-client-view *ngIf="!editMode" [company]="company"></invoices-client-view>
+    <invoices-client-edit *ngIf="editMode" [client]="company"></invoices-client-edit>
+  </mat-card-content>
+  <mat-card-footer>
+    <button mat-button mat-raised-button [disabled]="editMode" (click)="editCompany()">Edit</button>
+    <button mat-button mat-raised-button [disabled]="!editMode" (click)="close()">Close</button>
+    <button mat-button mat-raised-button routerLink="../">Back</button>
+  </mat-card-footer>
+</mat-card>

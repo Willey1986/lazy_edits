@@ -1,0 +1,28 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@invoices/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@invoices/data": ["libs/data/src/index.ts"],
+      "@invoices/api/companies": ["libs/api/companies/src/index.ts"],
+      "@invoices/api/invoices": ["libs/api/invoices/src/index.ts"],
+      "@invoices/api/work-items": ["libs/api/work-items/src/index.ts"],
+      "@invoices/api/util": ["libs/api/util/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

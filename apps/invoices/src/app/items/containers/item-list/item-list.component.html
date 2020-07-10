@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-title>Items</mat-card-title>
+  <mat-card-content>
+    <div>
+      <input type="text" [formControl]="search" placeholder="product name">
+    </div>
+    <mat-list>
+      <mat-list-item *ngFor="let lineItem of items">
+        <span class="product-name select" [routerLink]="lineItem.id">{{ lineItem.product }}</span>
+        <span class="amount">{{ lineItem.price | currency:'EUR' }}</span>
+      </mat-list-item>
+
+      <mat-list-item *ngIf="items?.length === 0">No items to show</mat-list-item>
+    </mat-list>
+
+    <mat-paginator [pageSize]="pageSize" [pageIndex]="pageIndex" length="1000" [pageSizeOptions]="pageSizeOptions" (page)="reloadItems($event)"></mat-paginator>
+
+
+  </mat-card-content>
+
+
+</mat-card>

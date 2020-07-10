@@ -1,0 +1,51 @@
+{
+  "npmScope": "invoices",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
+    }
+  },
+  "projects": {
+    "invoices": {
+      "tags": []
+    },
+    "invoices-e2e": {
+      "tags": [],
+      "implicitDependencies": ["invoices"]
+    },
+    "api": {
+      "tags": ["type:app"]
+    },
+    "api-interfaces": {
+      "tags": ["type:api"]
+    },
+    "data": {
+      "tags": ["type:data"]
+    },
+    "api-companies": {
+      "tags": ["type:api"]
+    },
+    "api-invoices": {
+      "tags": ["type:api"]
+    },
+    "api-work-items": {
+      "tags": ["type:api"]
+    },
+    "api-util": {
+      "tags": ["type:api"]
+    }
+  }
+}

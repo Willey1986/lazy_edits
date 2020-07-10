@@ -1,0 +1,9 @@
+<div class="col">
+  <input matInput type="text" [formControl]="search" placeholder="client name">
+</div>
+<div class="col">
+  <mat-radio-group aria-label="View type" [formControl]="view">
+    <mat-radio-button class="checkbox" value="list">List</mat-radio-button>
+    <mat-radio-button class="checkbox" value="table">Table</mat-radio-button>
+  </mat-radio-group>
+</div>

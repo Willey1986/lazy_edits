@@ -1,0 +1,34 @@
+<mat-card *ngIf="invoice">
+  <mat-card-title>Invoice for {{ invoice.company.companyName }}</mat-card-title>
+  <mat-card-content>
+    <p>Name: {{ invoice.company.companyName }}</p>
+    <div>
+      Address
+      <address>
+        {{ invoice.company.companyName }}
+        {{ invoice.company.street }}
+        {{ invoice.company.city }}
+        {{ invoice.company.country }}
+      </address>
+    </div>
+    <ul>
+      <li *ngFor="let lineItem of invoice.lineItems">
+        <p class="product-name">{{ lineItem.product }}</p>
+        <p class="amount">Price for this item {{ lineItem.price | currency:'EUR' }}</p>
+        <p class="quantity">Quantity {{ lineItem.quantity }}</p>
+      </li>
+
+      <mat-list-item *ngIf="invoice.lineItems?.length === 0">No items to show</mat-list-item>
+    </ul>
+  </mat-card-content>
+  <mat-card-footer>
+    <button mat-button (click)="invoice = null">Close</button>
+  </mat-card-footer>
+</mat-card>
+<mat-card *ngIf="!invoice">
+  <mat-card-title>No such invoice</mat-card-title>
+  <mat-card-content>
+    <p>No invoice with such id.</p>
+    <p>You could <a routerLink="../">look it up</a> or <a routerLink="../new">create a new one</a>.</p>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-title>Invoices</mat-card-title>
+  <mat-card-content>
+    <div class="row">
+      <div>
+        <input type="text" [formControl]="search" placeholder="for client">
+        <p class="mat-hint" *ngIf="search.dirty && search.invalid">Please select client</p>
+      </div>
+      <div>
+        <a routerLink="new">Create invoice</a>
+      </div>
+    </div>
+    <mat-list>
+      <mat-list-item *ngFor="let invoice of invoices">
+        <span class="company-name select" [routerLink]="invoice.id">{{ invoice.company.companyName }}</span>
+        <span class="amount">{{ invoice.lineItems | getAmount | currency:'EUR' }}</span>
+      </mat-list-item>
+    </mat-list>
+    <mat-list-item *ngIf="invoices.length === 0">No items to show</mat-list-item>
+
+    <mat-paginator [pageSize]="pageSize" [pageIndex]="pageIndex" length="1000" [pageSizeOptions]="pageSizeOptions" (page)="reloadInvoices($event)"></mat-paginator>
+
+
+  </mat-card-content>
+
+
+</mat-card>

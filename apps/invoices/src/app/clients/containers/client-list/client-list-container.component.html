@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-title>Clients</mat-card-title>
+  <mat-card-content>
+    <invoices-toolbar
+      (searchTerm)="filterCompanies($event)"
+      (viewType)="changeViewType($event)"
+    ></invoices-toolbar>
+
+    <invoices-client-list
+      *ngIf="viewType === 'list'"
+      [companies]="(state$ | async)?.clients"
+      [rowCount]="(state$ | async)?.rowCount"
+      (page)="reloadCompanies($event)"
+    ></invoices-client-list>
+
+
+    <invoices-client-table
+      *ngIf="viewType === 'table'"
+      [companies]="(state$ | async)?.clients"
+      [rowCount]="(state$ | async)?.rowCount"
+      (page)="reloadCompanies($event)"
+    ></invoices-client-table>
+  </mat-card-content>
+</mat-card>

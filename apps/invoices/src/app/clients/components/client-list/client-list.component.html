@@ -1,0 +1,11 @@
+<mat-list>
+  <mat-list-item *ngFor="let company of companies">
+    <span class="company-name select" [routerLink]="[company.id]">{{ company.companyName }}</span>
+    <span class="city">{{ company.city }}</span>
+  </mat-list-item>
+
+  <mat-list-item *ngIf="companies?.length === 0">No items to show</mat-list-item>
+
+</mat-list>
+
+<mat-paginator [pageSize]="pageSize" [pageIndex]="pageIndex" [length]="rowCount" [pageSizeOptions]="pageSizeOptions" (page)="reloadCompanies($event)"></mat-paginator>

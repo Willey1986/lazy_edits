@@ -1,0 +1,11 @@
+<mat-card *ngIf="item">
+  <mat-card-title>{{ item.product }}</mat-card-title>
+  <mat-card-content>
+    <p>Name: {{ item.product }}</p>
+    <p>Price: {{ item.price }}</p>
+    <p>Quantity: {{ item.quantity }}</p>
+  </mat-card-content>
+  <mat-card-footer>
+    <button mat-button (click)="item = null">Close</button>
+  </mat-card-footer>
+</mat-card>

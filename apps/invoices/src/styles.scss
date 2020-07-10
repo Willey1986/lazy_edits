@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+@import "node_modules/ag-grid-community/src/styles/ag-grid.scss";
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+main > section {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+mat-list-item span {
+  padding: .5em;
+}
+
+.select {
+  text-decoration: underline;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat( auto-fit, minmax(250px, 1fr) );
+}
