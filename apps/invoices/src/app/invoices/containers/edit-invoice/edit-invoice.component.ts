@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {InvoiceService} from "../../services/invoice.service";
 import {ActivatedRoute, Params} from "@angular/router";
-import {map} from "rxjs/operators";
+import {filter, map} from "rxjs/operators";
 import {Observable} from "rxjs";
 import {Company, Invoice, LineItem} from "@invoices/api-interfaces";
 import {InvoiceEditState} from "../../states/InvoiceEditState";
@@ -26,6 +26,7 @@ export class EditInvoiceComponent {
     route.params
       .pipe(
         map((params: Params) => params.invoiceId),
+        filter((id: string) => id != null)
       )
       .subscribe((id: string) =>
         this.invoiceService.loadInvoice(id)
