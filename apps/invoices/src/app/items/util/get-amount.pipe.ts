@@ -7,7 +7,6 @@ import {LineItem} from '@invoices/api-interfaces';
 export class GetAmountPipe implements PipeTransform {
 
   transform(lineItems: LineItem[]): number {
-    //TODO Correct calculation after correcting the model
-    return lineItems.reduce((total, item) => total + (item.price/* * item.quantity*/), 0);
+    return lineItems.reduce((total, item) => total + (item.price * item.quantity), 0);
   }
 }
