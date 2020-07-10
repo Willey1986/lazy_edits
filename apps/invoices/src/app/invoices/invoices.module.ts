@@ -13,9 +13,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatListModule } from '@angular/material/list';
 import { EditInvoiceComponent } from './containers/edit-invoice/edit-invoice.component';
 import { ClientComponent } from './components/client.component';
+import { InvoiceHeaderComponent } from './components/invoice-header/invoice-header.component';
+import { MatDatepicker } from '@angular/material/datepicker';
 
 @NgModule({
-  declarations: [InvoiceListComponent, InvoiceComponent, GetAmountPipe, EditInvoiceComponent, ClientComponent],
+  declarations: [InvoiceListComponent, InvoiceComponent, GetAmountPipe, EditInvoiceComponent, ClientComponent, InvoiceHeaderComponent],
   imports: [
     CommonModule,
     InvoicesRoutingModule,
@@ -23,6 +25,7 @@ import { ClientComponent } from './components/client.component';
     ReactiveFormsModule,
     MatPaginatorModule,
     MatListModule,
+    MatDatepicker
   ],
   providers: [InvoiceListService, InvoiceService]
 })
