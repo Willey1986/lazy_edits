@@ -52,4 +52,8 @@ export class EditInvoiceComponent {
     this.invoiceService.saveInvoice(invoice);
   }
 
+  public onStoreClient(client: Company): void {
+    this.invoiceService.saveClient(client);
+  }
+
 }
