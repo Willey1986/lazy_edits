@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Company } from '@invoices/api-interfaces';
 import { Observable } from 'rxjs';
 import { FormGroup } from '@angular/forms';
+import { MatOptionSelectionChange } from '@angular/material/core';
 
 
 @Component({
@@ -24,6 +25,12 @@ export class EditClientComponent implements OnInit {
       this.search.emit(value);
       }
     )
+  }
+
+  selectClient(client: Company, $event: MatOptionSelectionChange){
+    if ($event.isUserInput) {
+      this.clientForm.patchValue(client);
+    }
   }
 
 }

@@ -20,7 +20,8 @@ export class EditMainComponent implements OnInit {
   ngOnInit(): void {
     this.invoiceForm = new FormGroup({
          client: new FormGroup({
-           companyName: new FormControl('')
+           companyName: new FormControl(''),
+           vatNo: new FormControl('')
          })
       }
     )

@@ -27,20 +27,21 @@
     </div>
   </div>
 
-  <div class="client" *ngIf="clients$ | async as clients">
+  <div class="client">
     <h3>NEW CLIENT</h3>
     <form [formGroup]="clientForm">
       <mat-form-field>
         <input matInput type="text" placeholder="Company Name" formControlName="companyName"
                [matAutocomplete]="allClients">
         <mat-autocomplete autoActiveFirstOption #allClients="matAutocomplete">
-          <mat-option *ngFor="let client of clients$ | async" [value]="client.companyName">
+          <mat-option *ngFor="let client of clients$ | async" [value]="client.companyName"
+                      (onSelectionChange)="selectClient(client, $event)">
             <span>{{client.companyName}}</span>
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
       <mat-form-field>
-        <input matInput type="text" placeholder="VAT Number">
+        <input matInput type="text" placeholder="VAT Number" formControlName="vatNo">
       </mat-form-field>
       <mat-form-field>
         <input matInput type="text" placeholder="Address">
