@@ -7,8 +7,8 @@
     <mat-divider></mat-divider>
     <invoices-edit-parameters [parametersForm]="invoiceForm.controls.parameters"
                               [invoiceParameters]="invoiceParameters"
-                              (currencyChange)="onCurrencyChanged($event)"
-                              (unitMeasurementChange)="onUnitMeasurementChange($event)"></invoices-edit-parameters>
+                              (changeCurrency)="onCurrencyChanged($event)"
+                              (changeUnitMeasurement)="onUnitMeasurementChange($event)"></invoices-edit-parameters>
 
     <button mat-button mat-raised-button type="submit" [disabled]="!invoiceForm.valid">Generate invoice</button>
   </div>
