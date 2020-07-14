@@ -57,8 +57,8 @@ export class EditMainComponent implements OnInit {
   }
 
   onInvoiceCreate() {
-    console.log('create invoice');
-    this.createInvoice.emit();
+    console.log(this.invoiceForm.value);
+    this.createInvoice.emit(this.invoiceForm.value)
   }
 
 }
