@@ -19,7 +19,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { InvoiceHeaderComponent } from './components/invoice-header/invoice-header.component';
-import { MatDatepicker } from '@angular/material/datepicker';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { InvoiceCustomizationComponent } from './components/invoice-customization/invoice-customization.component';
 
 @NgModule({
@@ -31,7 +31,7 @@ import { InvoiceCustomizationComponent } from './components/invoice-customizatio
     ReactiveFormsModule,
     MatPaginatorModule,
     MatListModule,
-    MatDatepicker
+    MatDatepickerModule,
     MatFormFieldModule,
     MatSelectModule,
     MatAutocompleteModule,
@@ -40,4 +40,5 @@ import { InvoiceCustomizationComponent } from './components/invoice-customizatio
   ],
   providers: [InvoiceListService, InvoiceService]
 })
-export class InvoicesModule { }
+export class InvoicesModule {
+}
