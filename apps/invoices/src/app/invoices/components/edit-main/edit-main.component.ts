@@ -16,8 +16,9 @@ export class EditMainComponent implements OnInit {
   @Input() invoice: Invoice;
   @Input() invoiceParameters: InvoiceParameters;
   @Output() searchClients = new EventEmitter<string>();
-  @Output() unitMeasurementChange = new EventEmitter();
-  @Output() currencyChange = new EventEmitter();
+  @Output() changeUnitMeasurement = new EventEmitter<string>();
+  @Output() changeCurrency = new EventEmitter<string>();
+  @Output() createInvoice = new EventEmitter();
 
   invoiceForm: FormGroup;
 
@@ -48,15 +49,16 @@ export class EditMainComponent implements OnInit {
   }
 
   onCurrencyChanged(currency: string) {
-    this.currencyChange.emit(currency);
+    this.changeCurrency.emit(currency);
   }
 
   onUnitMeasurementChange(unit: string) {
-    this.unitMeasurementChange.emit(unit);
+    this.changeCurrency.emit(unit);
   }
 
-  createInvoice() {
+  onInvoiceCreate() {
     console.log('create invoice');
+    this.createInvoice.emit();
   }
 
 }

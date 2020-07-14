@@ -4,7 +4,7 @@
     <mat-label>Unit measurements</mat-label>
     <mat-select formControlName="unitMeasurement">
       <mat-option *ngFor="let unit of invoiceParameters.unitMeasurements" [value]="unit"
-                  (onSelectionChange)="selectUnitMeasurement(unit, $event)">
+                  (onSelectionChange)="onUnitMeasurementChange(unit, $event)">
         {{unit}}
       </mat-option>
     </mat-select>
@@ -15,7 +15,7 @@
     <mat-label>Currency</mat-label>
     <mat-select formControlName="currency">
       <mat-option *ngFor="let currency of invoiceParameters.currencies" [value]="currency"
-                  (onSelectionChange)="selectCurrency(currency, $event)">
+                  (onSelectionChange)="onCurrencyChange(currency, $event)">
         {{currency}}
       </mat-option>
     </mat-select>

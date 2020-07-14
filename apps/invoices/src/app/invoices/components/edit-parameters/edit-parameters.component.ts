@@ -12,8 +12,8 @@ export class EditParametersComponent implements OnInit {
   @Input() parametersForm: FormGroup;
   @Input() invoiceParameters: InvoiceParameters;
 
-  @Output() unitMeasurementChange = new EventEmitter();
-  @Output() currencyChange = new EventEmitter();
+  @Output() changeUnitMeasurement = new EventEmitter();
+  @Output() changeCurrency = new EventEmitter();
 
   constructor() {
   }
@@ -22,15 +22,15 @@ export class EditParametersComponent implements OnInit {
   }
 
 
-  selectUnitMeasurement(unitMeasurement: string, $event: MatOptionSelectionChange){
+  onUnitMeasurementChange(unitMeasurement: string, $event: MatOptionSelectionChange) {
     if ($event.isUserInput) {
-      this.unitMeasurementChange.emit(unitMeasurement);
+      this.changeUnitMeasurement.emit(unitMeasurement);
     }
   }
 
-  selectCurrency(currency: string, $event: MatOptionSelectionChange){
+  onCurrencyChange(currency: string, $event: MatOptionSelectionChange) {
     if ($event.isUserInput) {
-      this.currencyChange.emit(currency);
+      this.changeCurrency.emit(currency);
     }
   }
 }

@@ -1,4 +1,4 @@
-<form (ngSubmit)="createInvoice()" [formGroup]="invoiceForm">
+<form (ngSubmit)="onInvoiceCreate()" [formGroup]="invoiceForm">
   <div class="wrapper">
     <invoices-edit-header [invoice]="invoice" [headerForm]="invoiceForm.controls.header"></invoices-edit-header>
     <mat-divider></mat-divider>
