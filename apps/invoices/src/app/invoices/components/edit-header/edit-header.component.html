@@ -1,0 +1,32 @@
+<ng-container [formGroup]="headerForm">
+  <div class="wrapper">
+    <div class="header">
+      <div *ngIf="invoice">
+        Series ID Number: {{invoice?.id}}}
+      </div>
+      <mat-form-field appearance="fill">
+        <input matInput [matDatepicker]="datePicker" formControlName="date">
+        <mat-datepicker-toggle matSuffix [for]="datePicker">
+          <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #datePicker></mat-datepicker>
+      </mat-form-field>
+      <mat-error *ngIf="headerForm.get('date').hasError('MAX_DATE_EXCEEDED')">
+        Selected date has to be until today
+      </mat-error>
+
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <input matInput [matDatepicker]="dueDatePicker" formControlName="dueDate">
+        <mat-datepicker-toggle matSuffix [for]="dueDatePicker">
+          <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+        </mat-datepicker-toggle>
+        <mat-datepicker #dueDatePicker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-error *ngIf="headerForm.hasError('DUE_DATE_MAX_DATE_EXCEEDED')">
+        Due date has to be greater than selected date
+      </mat-error>
+    </div>
+  </div>
+</ng-container>

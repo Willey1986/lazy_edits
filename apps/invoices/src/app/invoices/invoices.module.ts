@@ -12,19 +12,21 @@ import { InvoiceService } from './services/invoice.service';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatListModule } from '@angular/material/list';
 import { EditInvoiceComponent } from './containers/edit-invoice/edit-invoice.component';
-import { EditClientComponent } from './components/edit-client.component';
+import { EditClientComponent } from './components/edit-client/edit-client.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { InvoiceHeaderComponent } from './components/invoice-header/invoice-header.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { InvoiceCustomizationComponent } from './components/invoice-customization/invoice-customization.component';
-import { EditMainComponent } from './components/edit-main.component';
+import { EditMainComponent } from './components/edit-main/edit-main.component';
+import { EditHeaderComponent } from './components/edit-header/edit-header.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatNativeDateModule } from '@angular/material/core';
+import { EditParametersComponent } from './components/edit-parameters/edit-parameters.component';
 
 @NgModule({
-  declarations: [InvoiceListComponent, InvoiceComponent, GetAmountPipe, EditInvoiceComponent, EditInvoiceComponent, EditClientComponent, EditMainComponent],
+  declarations: [InvoiceListComponent, InvoiceComponent, GetAmountPipe, EditInvoiceComponent, EditInvoiceComponent, EditClientComponent, EditHeaderComponent, EditParametersComponent, EditMainComponent],
   imports: [
     CommonModule,
     InvoicesRoutingModule,
@@ -33,12 +35,15 @@ import { EditMainComponent } from './components/edit-main.component';
     MatPaginatorModule,
     MatListModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     MatFormFieldModule,
     MatSelectModule,
     MatAutocompleteModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [InvoiceListService, InvoiceService]
 })
-export class InvoicesModule { }
+export class InvoicesModule {
+}

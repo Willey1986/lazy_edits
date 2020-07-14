@@ -1,0 +1,16 @@
+<form (ngSubmit)="createInvoice()" [formGroup]="invoiceForm">
+  <div class="wrapper">
+    <invoices-edit-header [invoice]="invoice" [headerForm]="invoiceForm.controls.header"></invoices-edit-header>
+    <mat-divider></mat-divider>
+    <invoices-edit-client [clients$]="clients$" [clientForm]="invoiceForm.controls.client"
+                          (search)="search($event)"></invoices-edit-client>
+    <mat-divider></mat-divider>
+    <invoices-edit-parameters [parametersForm]="invoiceForm.controls.parameters"
+                              [invoiceParameters]="invoiceParameters"
+                              (currencyChange)="onCurrencyChanged($event)"
+                              (unitMeasurementChange)="onUnitMeasurementChange($event)"></invoices-edit-parameters>
+
+    <button mat-button mat-raised-button type="submit" [disabled]="!invoiceForm.valid">Generate invoice</button>
+  </div>
+
+</form>

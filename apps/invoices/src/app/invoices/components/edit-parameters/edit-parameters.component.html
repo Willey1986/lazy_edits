@@ -1,0 +1,23 @@
+<h3>Customize</h3>
+<ng-container [formGroup]="parametersForm">
+  <mat-form-field class="example-full-width">
+    <mat-label>Unit measurements</mat-label>
+    <mat-select formControlName="unitMeasurement">
+      <mat-option *ngFor="let unit of invoiceParameters.unitMeasurements" [value]="unit"
+                  (onSelectionChange)="selectUnitMeasurement(unit, $event)">
+        {{unit}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Currency</mat-label>
+    <mat-select formControlName="currency">
+      <mat-option *ngFor="let currency of invoiceParameters.currencies" [value]="currency"
+                  (onSelectionChange)="selectCurrency(currency, $event)">
+        {{currency}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</ng-container>

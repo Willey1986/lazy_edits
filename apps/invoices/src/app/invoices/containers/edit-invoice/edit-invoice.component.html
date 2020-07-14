@@ -1,1 +1,2 @@
-<invoices-edit-main [clients$]="clients$" (searchClients)="onClientSearch($event)"></invoices-edit-main>
+<invoices-edit-main [clients$]="clients$" [invoice]="invoice$ | async" [invoiceParameters]="invoiceParameters"
+                    (searchClients)="onClientSearch($event)"></invoices-edit-main>

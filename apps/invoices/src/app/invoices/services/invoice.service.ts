@@ -7,6 +7,7 @@ import { ClientResourceService } from '../../clients/services/client-resource.se
 import { ItemsResourceService } from '../../items/services/items-resource.service';
 import { InvoiceResourceService } from './invoice-resource.service';
 import { Router } from '@angular/router';
+import { InvoiceParameters } from '../model/invoice-parameters';
 
 @Injectable()
 export class InvoiceService {
@@ -112,6 +113,10 @@ export class InvoiceService {
   getLineItems$(): Observable<LineItem[]> {
     return this.invoiceEditState.getState$()
       .pipe(map((state: InvoiceEditStateObject) => state.lineItems));
+  }
+
+  getInvoiceParameters(): InvoiceParameters {
+    return {unitMeasurements: ['hours', 'minutes', 'seconds'], currencies: ['EUR', 'USD']}
   }
 
 
