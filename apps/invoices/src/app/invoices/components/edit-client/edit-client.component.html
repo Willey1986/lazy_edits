@@ -29,12 +29,12 @@
 
   <div class="client">
     <h3>NEW CLIENT</h3>
-    <form [formGroup]="clientForm">
+    <ng-container [formGroup]="clientForm">
       <mat-form-field>
         <input matInput type="text" placeholder="Company Name" formControlName="companyName"
                [matAutocomplete]="allClients">
         <mat-autocomplete autoActiveFirstOption #allClients="matAutocomplete">
-          <mat-option *ngFor="let client of clients$ | async" [value]="client.companyName"
+          <mat-option *ngFor="let client of clients" [value]="client.companyName"
                       (onSelectionChange)="selectClient(client, $event)">
             <span>{{client.companyName}}</span>
           </mat-option>
@@ -49,7 +49,7 @@
       <mat-form-field>
         <input matInput type="text" placeholder="Other">
       </mat-form-field>
-    </form>
+    </ng-container>
     <div class="actions">
       <button mat-button mat-raised-button>Cancel</button>
       <button mat-button mat-raised-button>Save</button>

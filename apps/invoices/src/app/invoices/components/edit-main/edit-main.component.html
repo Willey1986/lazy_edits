@@ -2,7 +2,7 @@
   <div class="wrapper">
     <invoices-edit-header [invoice]="invoice" [headerForm]="invoiceForm.controls.header"></invoices-edit-header>
     <mat-divider></mat-divider>
-    <invoices-edit-client [clients$]="clients$" [clientForm]="invoiceForm.controls.client"
+    <invoices-edit-client [clients]="clients" [clientForm]="invoiceForm.controls.client"
                           (search)="search($event)"></invoices-edit-client>
     <mat-divider></mat-divider>
     <invoices-edit-parameters [parametersForm]="invoiceForm.controls.parameters"

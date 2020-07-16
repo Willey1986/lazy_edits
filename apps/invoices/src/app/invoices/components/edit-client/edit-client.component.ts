@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Company } from '@invoices/api-interfaces';
-import { Observable } from 'rxjs';
 import { FormGroup } from '@angular/forms';
 import { MatOptionSelectionChange } from '@angular/material/core';
 
@@ -12,7 +11,7 @@ import { MatOptionSelectionChange } from '@angular/material/core';
 })
 export class EditClientComponent implements OnInit {
 
-  @Input() clients$: Observable<Company[]>;
+  @Input() clients: Company[];
   @Input() clientForm: FormGroup;
   @Output() search = new EventEmitter<string>();
 
@@ -21,13 +20,13 @@ export class EditClientComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.clientForm.get('companyName').valueChanges.subscribe(value =>{
-      this.search.emit(value);
+    this.clientForm.get('companyName').valueChanges.subscribe(value => {
+        this.search.emit(value);
       }
-    )
+    );
   }
 
-  selectClient(client: Company, $event: MatOptionSelectionChange){
+  selectClient(client: Company, $event: MatOptionSelectionChange) {
     if ($event.isUserInput) {
       this.clientForm.patchValue(client);
     }

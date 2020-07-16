@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Company, Invoice } from '@invoices/api-interfaces';
-import { Observable } from 'rxjs';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { dateValidator } from './validators/date-validator';
 import { dueDateValidator } from './validators/due-date-validator';
 import { InvoiceParameters } from '../../model/invoice-parameters';
@@ -12,7 +11,7 @@ import { InvoiceParameters } from '../../model/invoice-parameters';
   styleUrls: ['./edit-main.component.scss']
 })
 export class EditMainComponent implements OnInit {
-  @Input() clients$: Observable<Company[]>;
+  @Input() clients: Company[];
   @Input() invoice: Invoice;
   @Input() invoiceParameters: InvoiceParameters;
   @Output() searchClients = new EventEmitter<string>();
@@ -22,11 +21,11 @@ export class EditMainComponent implements OnInit {
 
   invoiceForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor() {
   }
 
   ngOnInit(): void {
-    this.invoiceForm = this.fb.group({
+    this.invoiceForm = new FormGroup({
         header: new FormGroup({
           date: new FormControl(new Date(), [dateValidator]),
           dueDate: new FormControl('')
@@ -39,7 +38,7 @@ export class EditMainComponent implements OnInit {
           unitMeasurement: new FormControl(''),
           currency: new FormControl('')
         }),
-        products: this.fb.array([])
+        products: new FormArray([])
       }
     );
   }
